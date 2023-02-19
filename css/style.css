@@ -1,0 +1,52 @@
+body{
+    background-color: #4D1F51;
+color: aliceblue;
+}
+
+.ball {
+    width: 250px;
+}
+
+.font {
+    font-family: 'Rasa', serif;
+}
+
+button {
+    padding: 10px 50px 10px 50px;
+    background-color: #A382A6;
+    color: aliceblue;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* page one*/
+
+.page-one {
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* page one*/
+/* page two*/
+.page-two {
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-two {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 {
+    
+}
+
+/* page two*/
