@@ -1,12 +1,18 @@
 
+const nameButton = document.getElementById("inputName");
+let name = nameButton.value;
+let Url = "https://leah-harden.github.io/What-the-Magic-Ball-see/"
+let completeUrl = Url + 
+$(nameButton).click(function(){
+    event.preventDefault()
+        function change_page(){
+            window.location.replace("page-two.html");
+        }; 
+        change_page()
 
 
 
-
-
-
-
-
+    });
 
 
 
