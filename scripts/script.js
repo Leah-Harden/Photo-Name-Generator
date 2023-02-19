@@ -1,10 +1,10 @@
 
-const nameButton = document.getElementById("inputName");
+const nameButton = document.getElementById("nameBtn");
 let name = nameButton.value;
 let Url = "https://leah-harden.github.io/What-the-Magic-Ball-see/"
 let completeUrl = Url + 
 $(nameButton).click(function(){
-    event.preventDefault()
+    preventDefault()
         function change_page(){
             window.location.replace("page-two.html");
         }; 
