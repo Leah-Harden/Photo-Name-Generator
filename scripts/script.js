@@ -1,13 +1,20 @@
 
-let nameButton = document.getElementById("nameBtn");
-let name = nameButton.value;
-let Url = "https://leah-harden.github.io/What-the-Magic-Ball-see/"
-let completeUrl = Url + ""
+var inpName = document.getElementById("inputName");
+var realName = inpName.value;
+let completeUrl = Url + "";
+let 
 
-$(nameButton).click(function(event){
+
+
+$("#nameBtn").on("click", function (event) {
     event.preventDefault()
+
         function change_page(){
-            document.location.replace("page-two.html");
+            if(realName = ""){
+console.log("no name")
+            }else{
+                window.location.replace("page-two.html?" + realName);
+            }
         }; 
         change_page()
 

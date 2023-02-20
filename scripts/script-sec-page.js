@@ -1,4 +1,4 @@
-const apikey = aeYvjbM5OcoeBJ6Pz3k70JlvcCifhD67kmBsFyRtkBGXhxQUTIGDCLE9
+const apikey = "aeYvjbM5OcoeBJ6Pz3k70JlvcCifhD67kmBsFyRtkBGXhxQUTIGDCLE9"
 const nameButton = document.getElementById("inputName");
 
 var guessedGender = ""
@@ -37,6 +37,17 @@ function predictAge(){
 $(nameButton).click(function(){
     predictAge()
     });
+
+$("#try-again").on("click", function (event) {
+
+        function change_page_again(){
+        window.location.replace("index.html");
+        }; 
+    change_page_again()
+    
+    
+    
+});
 
 
 // function magicBall(){
