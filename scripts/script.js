@@ -7,7 +7,7 @@ let completeUrl = Url + ""
 $(nameButton).click(function(event){
     event.preventDefault()
         function change_page(){
-            document.location.pathname("page-two.html");
+            document.location.replace("page-two.html");
         }; 
         change_page()
 
