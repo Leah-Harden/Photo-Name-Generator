@@ -5,6 +5,7 @@ color: aliceblue;
 
 .ball {
     width: 250px;
+    margin: 25px;
 }
 
 .font {
@@ -18,6 +19,7 @@ button {
     font-size: 17px;
     border: none;
     border-radius: 10px;
+    margin: 25px;
 }
 
 /* page one*/
@@ -29,14 +31,39 @@ button {
     align-items: center;
 }
 
+form {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    margin: 15px;
+    align-items: center;
+}
+
+#inputName {
+    background-color: #251026;
+    border: none;
+    color: #F0F0F0;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 50%;
+    height: 30px;
+}
 
 /* page one*/
 /* page two*/
 .page-two {
-    margin: 10%;
+    margin: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#personPhoto {
+    width: 40%;
+   min-height: 500px;
+    border: #A382A6 solid 35px;
+    border-radius: 10px;
 }
 
 .bottom-two {
@@ -45,6 +72,11 @@ button {
     align-items: center;
 }
 
+.text-ball {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 h2 {
     
 }
