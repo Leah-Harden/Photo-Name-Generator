@@ -1,11 +1,11 @@
 const apikey = "aeYvjbM5OcoeBJ6Pz3k70JlvcCifhD67kmBsFyRtkBGXhxQUTIGDCLE9"
 const nameButton = document.getElementById("inputName");
 
-var guessedGender = ""
+var guessedGender = "";
 
-var guessedOrigin = ""
+var guessedOrigin = "";
 
-var guessedAge = ""
+var guessedAge = "";
 
 
 
