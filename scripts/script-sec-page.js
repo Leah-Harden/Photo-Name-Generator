@@ -330,22 +330,22 @@ function predict(){
 predict()
 
 $("#try-again").on("click", function (event) {
-
         function change_page_again(){
         window.location.replace("index.html");
         }; 
     change_page_again()
-    
-    
-    
 });
 
 
 function magicBall(){
+    const persona = guessedAge +"years old" + guessedGender + "from" + guessedOrigin
+    const data = fetch(`https://api.pexels.com/v1/search?query=`+ persona +`&total_results=1`,{
+        method: "GET",
+        headers:{
+            Accept:"application/json",
+            Authorization: apiKeyPhoto,
+        }
+    })
+    console.log(data)
 
-    import { createClient } from 'pexels';
-    
-    const client = createClient(apiKeyPhoto);
-    const query = guessedAge + "years old" + guessedOrigin + guessedGender;
-        client.photos.search({ query, per_page: 1 }).then(photos => {...});
 }
