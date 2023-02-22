@@ -9,16 +9,17 @@ var guessedOrigin = "";
 var guessedAge = "";
 
 function translateOrigin() {
+    let trueOrigin = ""
+    /*
     let France = FR
     let	Italy = IT
     let	Spain = ES
     let	Turkey = TR
     let	Germany = DE
-    let	Poland = PL
-    let	GB = "United Kingdom"
-    let	Russia = RU
-    let CZ = "Czech Republic"
-     /*
+    Poland = PL
+    GB = "United Kingdom"
+    Russia = RU
+    CZ = "Czech Republic"
     PT	Portugal	2.103.522
     NL	Netherlands	2.074.912
     BE	Belgium	2.050.461
@@ -67,7 +68,13 @@ function translateOrigin() {
     MX	Mexico	224.250
     CO	Colombia	223.016
     */
-    KE	Kenya	220.092
+    if (guessedAge == KE){
+        "KE" === "Kenya"
+        "Kenya" == trueOrigin
+    } else {
+        console.log("problem")
+    }
+    
     /*
     CL	Chile	210.959
     KW	Kuwait	204.312
@@ -255,8 +262,9 @@ function translateOrigin() {
     GS	South Georgia And Sandwich Isl.	5
     BV	Bouvet Island
 */ 
+document.getElementById("displayOrigin").textContent = trueOrigin
+};
 
-}
 
 
 function predict(){
@@ -269,6 +277,7 @@ function predict(){
             guessedAge = data.age;
             document.getElementById("displayAge").textContent = data.age;
             console.log(guessedAge);
+
         }else{
             console.log("broked age") ; 
         }
@@ -284,8 +293,8 @@ function predict(){
         if (currentName != '') {
             console.log(data)
             guessedOrigin = data.country[0].country_id;
-            document.getElementById("displayOrigin").textContent = data.country[0].country_id;
-
+            //document.getElementById("displayOrigin").textContent = data.country[0].country_id;
+            translateOrigin(guessedAge) 
             console.log(guessedOrigin);
         }else{
             console.log("broked age") ; 
@@ -300,11 +309,10 @@ function predict(){
     .then(function(response){return response.json();})
     .then(data => {
         if (currentName != '') {
-            console.log(data.gender)
             guessedGender = data.gender;
             document.getElementById("displayGender").textContent = data.gender;
             
-            console.log(guessedOrigin);
+            console.log(guessedGender);
         }else{
             console.log("broked age") ; 
         }
@@ -321,13 +329,6 @@ function predict(){
 }
 predict()
 
-
-
-
-$(nameButton).click(function(){
-    predict()
-    });
-
 $("#try-again").on("click", function (event) {
 
         function change_page_again(){
@@ -340,12 +341,11 @@ $("#try-again").on("click", function (event) {
 });
 
 
-// function magicBall(){
+function magicBall(){
 
-//     import { createClient } from 'pexels';
+    import { createClient } from 'pexels';
     
-//     const client = createClient(apikey);
-//     const query = guessedAge + "years old" + guessedOrigin + guessedGender;
-    
-//     client.photos.search({ query, per_page: 1 }).then(photos => {...});
-// }
+    const client = createClient(apiKeyPhoto);
+    const query = guessedAge + "years old" + guessedOrigin + guessedGender;
+        client.photos.search({ query, per_page: 1 }).then(photos => {...});
+}
