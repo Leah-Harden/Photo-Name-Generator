@@ -9,7 +9,7 @@ let guessedOrigin = "";
 let guessedAge = "";
 let correctOrigin = "";
 let trueOrigin = "";
-
+let photo = "";
 
 function predict(){
 //age part
@@ -97,26 +97,26 @@ $("#try-again").on("click", function (event) {
 });
 
 
-function magicBall(){
+async function magicBall(){
     const persona = guessedAge +" "+"years old" + " "+ guessedGender +" "+ "from" + " "+ trueOrigin
     console.log(persona)
-    const data = fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=1`,{
+    var data = await fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=1`,{
         method: "GET",
         headers:{
             Accept:"application/json",
             Authorization: apiKeyPhoto,
         }
     })
-    console.log(data)
-    let photo = data.photos[0].src.original;
-    function makePhoto(){
-        image = `
-        
-        <img src="${data.photos[0].src.original}" height="500px"/>
-        `
-        $("#photoPlace").append(image)
-    }
-
-    makePhoto()
+    console.log(data)   
+    photo = await data.photos[0].src.original;
+    
+    $("#personPhoto").attr("src", photo)
+   // function makePhoto(){
+    //    var p = Math.floor(Math.random() * 16)
+        //let image = `
+    //<img src="${data.photos[0].src.original}" height="500px"/>
+    //`
+//}
+makePhoto()
 console.log("worked")
 }
