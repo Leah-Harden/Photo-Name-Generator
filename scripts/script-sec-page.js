@@ -8,9 +8,10 @@ let guessedGender = "";
 let guessedOrigin = "";
 let guessedAge = "";
 let correctOrigin = "";
+let trueOrigin = "";
+
 
 function predict(){
-
 //age part
     fetch('https://api.agify.io?name='+ currentName,{ method:'GET'})
     .then(function(response){return response.json();})
@@ -19,7 +20,6 @@ function predict(){
             guessedAge = data.age;
             document.getElementById("displayAge").textContent = data.age;
             console.log(guessedAge);
-
         }else{
             console.log("broked age") ; 
         }
@@ -56,8 +56,9 @@ function predict(){
             .then(data => {
                 if (currentName != '') {
                     console.log(data)
-                    //countryName = data.country[0].country_id;
-                    //document.getElementById("displayOrigin").textContent = data.country[0].country_id;
+                    trueOrigin = data[0].altSpellings[1];
+                    console.log(trueOrigin)
+                    document.getElementById("displayOrigin").textContent = trueOrigin
                     //translateOrigin(guessedOrigin) 
                     //console.log(countryName);
                 }else{
@@ -97,7 +98,7 @@ $("#try-again").on("click", function (event) {
 
 
 function magicBall(){
-    const persona = guessedAge +" "+"years old" + " "+ guessedGender +" "+ "from" + " "+ correctOrigin
+    const persona = guessedAge +" "+"years old" + " "+ guessedGender +" "+ "from" + " "+ trueOrigin
     console.log(persona)
     const data = fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=1`,{
         method: "GET",
@@ -107,5 +108,15 @@ function magicBall(){
         }
     })
     console.log(data)
+    let photo = data.photos[0].src.original;
+    function makePhoto(){
+        image = `
+        
+        <img src="${data.photos[0].src.original}" height="500px"/>
+        `
+        $("#photoPlace").append(image)
+    }
 
+    makePhoto()
+console.log("worked")
 }
