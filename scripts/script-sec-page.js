@@ -4,10 +4,10 @@ let currentUrl = window.location.href
 var splitUrl = currentUrl.split('?');
 console.log(splitUrl[1])
 let currentName = splitUrl[1];
-var guessedGender = "";
-var guessedOrigin = "";
-var guessedAge = "";
-
+let guessedGender = "";
+let guessedOrigin = "";
+let guessedAge = "";
+let correctOrigin = "";
 function translateOrigin() {
     let trueOrigin = ""
     /*
@@ -68,9 +68,9 @@ function translateOrigin() {
     MX	Mexico	224.250
     CO	Colombia	223.016
     */
-    if (guessedAge == KE){
-        "KE" === "Kenya"
-        "Kenya" == trueOrigin
+    if (guessedOrigin == "KE"){
+        guessedOrigin = "Kenya"
+        trueOrigin = "Kenya"
     } else {
         console.log("problem")
     }
@@ -292,17 +292,42 @@ function predict(){
     .then(data => {
         if (currentName != '') {
             console.log(data)
+            tranlateCC()
             guessedOrigin = data.country[0].country_id;
             //document.getElementById("displayOrigin").textContent = data.country[0].country_id;
-            translateOrigin(guessedAge) 
+            //translateOrigin(guessedOrigin) 
             console.log(guessedOrigin);
+            let partWay = guessedOrigin.toString()
+            
+            correctOrigin = partWay.toLowerCase()
+            console.log(correctOrigin);
         }else{
-            console.log("broked age") ; 
-        }
-        
-        
+            console.log("broked origin") ; 
+        }    
     })
+    
     .catch(err => console.log(err));
+
+
+
+
+        function tranlateCC(){
+    
+            fetch("https://restcountries.com/v3.1/alpha/"+ correctOrigin,{ method:'GET'})
+            .then(function(response){return response.json();})
+            .then(data => {
+                if (currentName != '') {
+                    console.log(data)
+                    //countryName = data.country[0].country_id;
+                    //document.getElementById("displayOrigin").textContent = data.country[0].country_id;
+                    //translateOrigin(guessedOrigin) 
+                    //console.log(countryName);
+                }else{
+                    console.log("broked age") ; 
+                }    
+            })
+            
+        }
 //Origin part
 //Gender part
     fetch('https://api.genderize.io?name='+ currentName,{ method:'GET'})
@@ -314,18 +339,14 @@ function predict(){
             
             console.log(guessedGender);
         }else{
-            console.log("broked age") ; 
+            console.log("broked gender") ; 
         }
+        magicBall()
         
         
     })
     .catch(err => console.log(err));
 //Gender part
-
-
-
-
-
 }
 predict()
 
@@ -338,8 +359,9 @@ $("#try-again").on("click", function (event) {
 
 
 function magicBall(){
-    const persona = guessedAge +"years old" + guessedGender + "from" + guessedOrigin
-    const data = fetch(`https://api.pexels.com/v1/search?query=`+ persona +`&total_results=1`,{
+    const persona = guessedAge +" "+"years old" + " "+ guessedGender +" "+ "from" + " "+ correctOrigin
+    console.log(persona)
+    const data = fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=1`,{
         method: "GET",
         headers:{
             Accept:"application/json",
