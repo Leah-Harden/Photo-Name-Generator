@@ -100,7 +100,7 @@ $("#try-again").on("click", function (event) {
 async function magicBall(){
     const persona = guessedAge +" "+"years old" + " "+ guessedGender +" "+ "from" + " "+ trueOrigin;
     console.log(persona)
-    var response = await fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=1`,{
+    var response = await fetch(`https://api.pexels.com/v1/search?query=${persona}&total_results=2`,{
         method: "GET",
         headers:{
             Accept:"application/json",

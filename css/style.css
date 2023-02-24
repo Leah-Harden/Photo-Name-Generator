@@ -61,7 +61,8 @@ form {
 
 #personPhoto {
     width: 40%;
-   min-height: 500px;
+    min-height: 500px;
+    
     border: #A382A6 solid 35px;
     border-radius: 10px;
 }
@@ -77,8 +78,6 @@ form {
     align-items: center;
     flex-direction: column;
 }
-h2 {
-    
-}
+
 
 /* page two*/
