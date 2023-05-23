@@ -1,9 +1,11 @@
 
 # What the Magic Ball sees
 
+![front-page](/photos/Ball.jpg)
+
 ## Description
 
-I decide to make this fun game in about a week. You put in your name and the Magic ball guess your age, gender, nationality and provide a photo. This project uses five Apis. Three to guess your age, gender and nationality. One to decode part of that to be readable and the last one to display a picture. The photo is base off what the first three apis thought of your name. 
+Hey there! I've got a fun game idea that I plan on creating in about a week. You simply enter your name and the Magic ball will guess your age, gender, and nationality. To add an extra layer of fun, you can even provide a photo! This project utilizes five different Apis - three of them are used to guess your age, gender, and nationality, another is used to decode some information to make it readable, and the last one is used to display a picture. The cool part is that the photo is based on what the first three APIs think of your name!
 
 I really like this project and hope to update it one day, maybe with AI art.
 
@@ -17,7 +19,7 @@ I really like this project and hope to update it one day, maybe with AI art.
 
 ## Installation
 
-All the files are here on GitHub so just download the folder.
+All the files are here on GitHub so just download the folder than just use live server to run the index.html file.
 ## Usage
 
 Just for fun and a bit educational. it is interesting to see how common names might bring your around the world. 
